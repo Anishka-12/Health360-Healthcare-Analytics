@@ -1,24 +1,36 @@
-Introduction to Health360
-Title: Health360 – Comprehensive Healthcare Risk and Disease
+# Health360 — Flask + Tableau Public
 
-Description:
+A Flask website containing Home, About, Dashboard, Story and FAQ pages. The Dashboard and Story embed the previously published Tableau Public workbook via Tableau Embedding API v3.
 
-Health360 is a healthcare data visualization project designed to explore the distribution of diseases and understand the relationship between health risks and different lifestyle and demographic factors. This dashboard analyzes health-related data using visualizations based on age, gender, BMI, blood pressure, smoking, exercise level, diabetes, heart disease, and stroke. The main objective is to make healthcare data easier to understand and identify patterns that may help support health awareness and preventive care.
+## Folder structure
 
-# Health360: Comprehensive Healthcare Risk and Disease Analysis
+- `app.py` — Flask server and routes
+- `templates/index.html` — page content and Tableau embeds
+- `static/style.css` — responsive styling
+- `requirements.txt` — Python dependencies
 
-## Project Overview
-Health360 is a healthcare data analysis project created using Tableau Public. It explores disease distribution and health risk factors through visualizations and an interactive dashboard.
+## Run locally
 
-## Objectives
-- Analyze diabetes, heart disease, and stroke distribution.
-- Explore age and health risk score patterns.
-- Examine BMI, blood pressure, and lifestyle indicators.
-- Present insights using an interactive dashboard.
+1. Install Python 3.10+.
+2. Open a terminal in this folder.
+3. Run `python -m pip install -r requirements.txt`.
+4. Run `python app.py`.
+5. Open http://127.0.0.1:5000/ in your browser.
 
-## Tools Used
-- Tableau Public
-- GitHub
+## Deploy to Render
 
-## Tableau Public Dashboard
-https://public.tableau.com/authoring/diseasedistribution/Sheet1/Dashboard%201#1
+1. Upload the **contents** of this folder to a GitHub repository (maintain folder structure).
+2. Create an account at https://render.com/ and connect GitHub.
+3. Choose **New > Web Service**, select your repository.
+4. Runtime: Python 3; Build command: `pip install -r requirements.txt`; Start command: `gunicorn app:app`.
+5. Choose a suitable plan (Free, if offered), then **Deploy Web Service**.
+6. Test `/`, `/about`, `/dashboard`, `/story`, `/faq` at the public URL.
+
+## Tableau troubleshooting
+
+- The viz source URLs are defined in `app.py` as `DASHBOARD_URL` and `STORY_URL`.
+- The Tableau views must remain publicly accessible.
+- If embedding fails, open the Tableau view in a browser, click **Share > Copy Embed Code**, and compare the official generated embed `src` to the URLs in `app.py`.
+- JavaScript and an internet connection are needed to display the embedded visualizations.
+- Tableau Public is not a real-time clinical database. Dashboards may show extracted data.
+- Never publish identifiable private patient information to Tableau Public.
