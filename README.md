@@ -1,6 +1,6 @@
 # Health360 — Flask + Tableau Public
 
-A Flask website containing Home, About, Dashboard, Story and FAQ pages. The Dashboard and Story embed the previously published Tableau Public workbook via Tableau Embedding API v3.
+A Flask website containing Home, About, Dashboard, Story and FAQ pages. The Dashboard and Story embed the updated Tableau Public dashboard and story views via Tableau Embedding API v3.
 
 ## Folder structure
 
@@ -28,7 +28,7 @@ A Flask website containing Home, About, Dashboard, Story and FAQ pages. The Dash
 
 ## Tableau troubleshooting
 
-- The viz source URLs are defined in `app.py` as `DASHBOARD_URL` and `STORY_URL`.
+- The updated dashboard and story source URLs are defined in `app.py` as `DASHBOARD_URL` and `STORY_URL`.
 - The Tableau views must remain publicly accessible.
 - If embedding fails, open the Tableau view in a browser, click **Share > Copy Embed Code**, and compare the official generated embed `src` to the URLs in `app.py`.
 - JavaScript and an internet connection are needed to display the embedded visualizations.
